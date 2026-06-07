@@ -23,11 +23,11 @@ const COLUMNS = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-line">
+    <footer className="relative overflow-hidden border-t border-line bg-surface-2">
       {/* oversized watermark */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-10 left-1/2 w-full -translate-x-1/2 select-none text-center text-[22vw] font-extrabold leading-none tracking-tighter text-white/[0.025]"
+        className="pointer-events-none absolute -bottom-10 left-1/2 w-full -translate-x-1/2 select-none text-center text-[22vw] font-extrabold leading-none tracking-tighter text-text/[0.04]"
       >
         NEURO SCAN
       </div>
@@ -48,15 +48,15 @@ export function Footer() {
                 />
               </span>
               <span className="flex flex-col leading-none">
-                <span className="text-base font-extrabold tracking-tight text-fg">
+                <span className="text-base font-extrabold tracking-tight text-text">
                   Neuro Scan
                 </span>
-                <span className="font-mono text-[0.6rem] uppercase tracking-[0.42em] text-blue-bright">
+                <span className="font-mono text-[0.6rem] uppercase tracking-[0.42em] text-primary">
                   MRI Clinic
                 </span>
               </span>
             </div>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted">
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-text-2">
               AI-аар сайжруулсан MRI оношилгоо. Эрт илрүүлэлт, өндөр нарийвчлал,
               хурдан хариу — Улаанбаатарт.
             </p>
@@ -65,7 +65,7 @@ export function Footer() {
           {/* link columns */}
           {COLUMNS.map((col) => (
             <div key={col.title} className="md:col-span-2">
-              <h4 className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-faint">
+              <h4 className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-text-3">
                 {col.title}
               </h4>
               <ul className="mt-4 flex flex-col gap-2.5">
@@ -73,7 +73,7 @@ export function Footer() {
                   <li key={l.label}>
                     <a
                       href={l.href}
-                      className="text-sm text-muted transition-colors hover:text-fg"
+                      className="text-sm text-text-2 transition-colors hover:text-text"
                     >
                       {l.label}
                     </a>
@@ -85,30 +85,30 @@ export function Footer() {
 
           {/* contact */}
           <div className="md:col-span-3">
-            <h4 className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-faint">
+            <h4 className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-text-3">
               Холбоо барих
             </h4>
             <ul className="mt-4 flex flex-col gap-3 text-sm">
               <li>
                 <a
                   href="tel:+97685038105"
-                  className="flex items-center gap-2 text-muted transition-colors hover:text-fg"
+                  className="flex items-center gap-2 text-text-2 transition-colors hover:text-text"
                 >
-                  <Phone className="h-4 w-4 text-blue-bright" />
+                  <Phone className="h-4 w-4 text-primary" />
                   +976 8503-8105
                 </a>
               </li>
               <li>
                 <a
                   href="tel:+97688882328"
-                  className="flex items-center gap-2 text-muted transition-colors hover:text-fg"
+                  className="flex items-center gap-2 text-text-2 transition-colors hover:text-text"
                 >
-                  <Phone className="h-4 w-4 text-blue-bright" />
+                  <Phone className="h-4 w-4 text-primary" />
                   +976 8888-2328
                 </a>
               </li>
-              <li className="flex items-start gap-2 text-muted">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-blue-bright" />
+              <li className="flex items-start gap-2 text-text-2">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 Натурын зам дагуу, Urban Tower, 1 давхарт
               </li>
             </ul>
@@ -116,10 +116,10 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-line pt-7 sm:flex-row">
-          <p className="font-mono text-xs text-faint">
+          <p className="font-mono text-xs text-text-3">
             © 2026 Neuro Scan MRI. Бүх эрх хуулиар хамгаалагдсан.
           </p>
-          <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-faint">
+          <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-text-3">
             Улаанбаатар · Монгол
           </p>
         </div>

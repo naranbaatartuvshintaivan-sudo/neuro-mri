@@ -2,44 +2,67 @@
 
 /* ============================================================
    NEURO SCAN MRI — design tokens
-   Deep navy-black clinical base · medical blue primary ·
-   single cyan accent reserved for "AI" moments.
+   Clean clinical light base · off-white + soft blue-grey ·
+   medical blue primary · single cyan accent for "AI" moments.
    ============================================================ */
-@theme {
+:root {
   /* surfaces */
-  --color-ink: #05070e;
-  --color-ink-2: #080c18;
-  --color-ink-3: #0b1120;
-  --color-card: #0a0f1d;
+  --bg: #f6f9fc; /* page background */
+  --surface: #ffffff; /* card / panel */
+  --surface-2: #eef4fb; /* subtle block */
 
   /* hairlines */
-  --color-line: rgba(150, 174, 224, 0.1);
-  --color-line-2: rgba(150, 174, 224, 0.18);
+  --line: #dbe6f1; /* border */
+  --line-2: #c7d7e8; /* strong border */
 
   /* text */
-  --color-fg: #e9eefc;
-  --color-muted: #95a2bd;
-  --color-faint: #5c6a87;
+  --text: #0f2742; /* primary text — slate-900 medical */
+  --text-2: #43607d; /* secondary text — AA on surface */
+  /* muted: spec value #7a93ac darkened to clear WCAG AA (≥4.5:1 on bg) */
+  --text-3: #5a728c;
 
   /* brand */
-  --color-blue: #2f6dff;
-  --color-blue-bright: #6aa1ff;
-  --color-blue-deep: #0b3fd6;
-  --color-cyan: #45e6f4;
-  --color-teal: #2fe6c6;
+  --primary: #1466ff; /* medical blue — CTA, link */
+  --primary-600: #0f52d6; /* darker blue — hover / small text */
+  --cyan: #06b6d4; /* accent cyan — badge dot, line, blink */
+  --cyan-soft: #e2f6fb; /* cyan tint background */
+
+  /* referenced from raw CSS + arbitrary classes */
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-plex-mono);
+  --radius: 1.25rem;
+}
+
+/* map semantic tokens → Tailwind color utilities (bg-surface, text-text-2, …) */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+
+  --color-text: var(--text);
+  --color-text-2: var(--text-2);
+  --color-text-3: var(--text-3);
+
+  --color-primary: var(--primary);
+  --color-primary-600: var(--primary-600);
+  --color-cyan: var(--cyan);
+  --color-cyan-soft: var(--cyan-soft);
 
   --font-sans: var(--font-manrope);
   --font-mono: var(--font-plex-mono);
 
   --radius: 1.25rem;
 
-  --shadow-glow: 0 0 0 1px rgba(106, 161, 255, 0.12),
-    0 24px 80px -28px rgba(47, 109, 255, 0.55);
+  --shadow-glow: 0 0 0 1px rgba(20, 102, 255, 0.1),
+    0 24px 60px -28px rgba(20, 102, 255, 0.3);
 }
 
 /* ---------- base ---------- */
 * {
-  border-color: var(--color-line);
+  border-color: var(--line);
 }
 
 html {
@@ -48,9 +71,9 @@ html {
 }
 
 body {
-  background-color: var(--color-ink);
-  color: var(--color-fg);
-  color-scheme: dark;
+  background-color: var(--bg);
+  color: var(--text);
+  color-scheme: light;
   font-family: var(--font-sans), system-ui, sans-serif;
   font-feature-settings: "ss01", "cv01";
   -webkit-font-smoothing: antialiased;
@@ -59,8 +82,8 @@ body {
 }
 
 ::selection {
-  background: rgba(69, 230, 244, 0.22);
-  color: #ffffff;
+  background: rgba(6, 182, 212, 0.18);
+  color: var(--text);
 }
 
 ::-webkit-scrollbar {
@@ -68,19 +91,19 @@ body {
   height: 11px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-ink);
+  background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1a2540;
-  border: 3px solid var(--color-ink);
+  background: #c7d7e8;
+  border: 3px solid var(--bg);
   border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #25345a;
+  background: #aac3dd;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-cyan);
+  outline: 2px solid var(--cyan);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -91,19 +114,19 @@ body {
 .atmo-grid {
   background-image: linear-gradient(
       to right,
-      rgba(120, 150, 220, 0.055) 1px,
+      rgba(20, 102, 255, 0.05) 1px,
       transparent 1px
     ),
-    linear-gradient(to bottom, rgba(120, 150, 220, 0.055) 1px, transparent 1px);
+    linear-gradient(to bottom, rgba(20, 102, 255, 0.05) 1px, transparent 1px);
   background-size: 62px 62px;
   -webkit-mask-image: radial-gradient(
     ellipse 90% 70% at 50% 30%,
-    #000 35%,
+    black 35%,
     transparent 100%
   );
   mask-image: radial-gradient(
     ellipse 90% 70% at 50% 30%,
-    #000 35%,
+    black 35%,
     transparent 100%
   );
 }
@@ -111,35 +134,35 @@ body {
 /* fine dotted radiology console texture */
 .atmo-dots {
   background-image: radial-gradient(
-    rgba(120, 150, 220, 0.16) 1px,
+    rgba(20, 102, 255, 0.11) 1px,
     transparent 1px
   );
   background-size: 22px 22px;
 }
 
-/* grain — kept extremely subtle */
+/* grain — kept extremely subtle, multiply so it reads on light */
 .atmo-noise {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
-  opacity: 0.035;
-  mix-blend-mode: overlay;
+  opacity: 0.025;
+  mix-blend-mode: multiply;
 }
 
-/* soft brand glow blobs (used sparingly) */
+/* soft brand glow blobs (used sparingly, gentle on light) */
 .glow-blue {
   background: radial-gradient(
     circle at center,
-    rgba(47, 109, 255, 0.5) 0%,
-    rgba(47, 109, 255, 0) 68%
+    rgba(20, 102, 255, 0.28) 0%,
+    rgba(20, 102, 255, 0) 68%
   );
-  filter: blur(8px);
+  filter: blur(10px);
 }
 .glow-cyan {
   background: radial-gradient(
     circle at center,
-    rgba(69, 230, 244, 0.4) 0%,
-    rgba(69, 230, 244, 0) 68%
+    rgba(6, 182, 212, 0.24) 0%,
+    rgba(6, 182, 212, 0) 68%
   );
-  filter: blur(8px);
+  filter: blur(10px);
 }
 
 /* gradient hairline used to underline section frames */
@@ -147,21 +170,21 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(106, 161, 255, 0.55),
-    rgba(69, 230, 244, 0.55),
+    rgba(20, 102, 255, 0.55),
+    rgba(6, 182, 212, 0.55),
     transparent
   );
 }
 
-/* clipped accent text */
+/* clipped accent text — blues → teal, kept AA on light for large headings */
 .text-gradient {
-  background: linear-gradient(100deg, #ffffff 0%, #8fc0ff 45%, #45e6f4 100%);
+  background: linear-gradient(100deg, #0f52d6 0%, #1466ff 45%, #0e7490 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* scan sweep line for framed media */
+/* scan sweep line for framed media — soft cyan */
 .scan-sweep {
   position: absolute;
   inset-inline: 0;
@@ -170,10 +193,10 @@ body {
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(69, 230, 244, 0.14) 60%,
-    rgba(69, 230, 244, 0.45)
+    rgba(6, 182, 212, 0.1) 60%,
+    rgba(6, 182, 212, 0.32)
   );
-  border-bottom: 1px solid rgba(69, 230, 244, 0.7);
+  border-bottom: 1px solid rgba(6, 182, 212, 0.6);
   animation: scan 5.5s cubic-bezier(0.7, 0, 0.3, 1) infinite;
   pointer-events: none;
 }
@@ -183,7 +206,7 @@ body {
   position: absolute;
   width: 16px;
   height: 16px;
-  border: 1.5px solid rgba(106, 161, 255, 0.55);
+  border: 1.5px solid rgba(20, 102, 255, 0.4);
 }
 
 @keyframes scan {
@@ -240,7 +263,7 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  border: 1px solid rgba(69, 230, 244, 0.6);
+  border: 1px solid rgba(6, 182, 212, 0.6);
   animation: pulse-ring 2.6s ease-out infinite;
 }
 
@@ -253,9 +276,9 @@ body {
   animation: marquee 34s linear infinite;
 }
 
-/* duotone treatment to fold marketing photos into the dark palette */
+/* gentle, airy treatment so marketing photos sit on the light palette */
 .duotone {
-  filter: grayscale(0.45) brightness(0.62) contrast(1.04);
+  filter: grayscale(0.1) brightness(1.04) contrast(1);
 }
 
 @media (prefers-reduced-motion: reduce) {

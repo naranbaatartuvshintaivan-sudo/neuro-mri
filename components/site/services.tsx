@@ -8,8 +8,8 @@ function CardChrome() {
   // shared hover affordances: accent border + crop marks revealed on hover
   return (
     <>
-      <span className="pointer-events-none absolute inset-0 rounded-[var(--radius)] border border-transparent transition-colors duration-500 group-hover:border-blue/40" />
-      <span className="pointer-events-none absolute left-0 top-0 h-px w-0 rounded-full bg-gradient-to-r from-blue-bright to-cyan transition-all duration-500 group-hover:w-2/3" />
+      <span className="pointer-events-none absolute inset-0 rounded-[var(--radius)] border border-transparent transition-colors duration-500 group-hover:border-primary/40" />
+      <span className="pointer-events-none absolute left-0 top-0 h-px w-0 rounded-full bg-gradient-to-r from-primary to-cyan transition-all duration-500 group-hover:w-2/3" />
       <span className="crop-mark right-4 top-4 border-b-0 border-l-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
     </>
   );
@@ -25,12 +25,12 @@ export function Services() {
       <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
         <Reveal>
           <SectionLabel index="01">Үйлчилгээ</SectionLabel>
-          <h2 className="mt-5 max-w-xl text-balance text-4xl font-extrabold tracking-[-0.02em] text-fg sm:text-5xl">
+          <h2 className="mt-5 max-w-xl text-balance text-4xl font-extrabold tracking-[-0.02em] text-text sm:text-5xl">
             Бидний оношилгоо
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="max-w-xs text-sm leading-relaxed text-muted md:text-right">
+          <p className="max-w-xs text-sm leading-relaxed text-text-2 md:text-right">
             Бүх төрлийн MRI шинжилгээг өндөр нягтралтай аппаратаар, мэргэжлийн
             эмчийн дүгнэлттэйгээр.
           </p>
@@ -41,17 +41,17 @@ export function Services() {
       <Stagger className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-12">
         {/* ---- FEATURE: Тархины MRI ---- */}
         <StaggerItem className="md:col-span-2 lg:col-span-8 lg:row-span-2">
-          <article className="group relative flex h-full min-h-[20rem] flex-col justify-between overflow-hidden rounded-[var(--radius)] border border-line bg-card/70 p-8 backdrop-blur-sm transition-transform duration-500 hover:-translate-y-1 lg:min-h-[33rem]">
+          <article className="group relative flex h-full min-h-[20rem] flex-col justify-between overflow-hidden rounded-[var(--radius)] border border-line bg-surface p-8 shadow-[0_1px_2px_rgba(15,39,66,0.04),0_24px_50px_-38px_rgba(20,102,255,0.25)] transition-transform duration-500 hover:-translate-y-1 lg:min-h-[33rem]">
             {/* designed scan visual */}
             <svg
               aria-hidden
               viewBox="0 0 400 400"
-              className="pointer-events-none absolute -right-10 -top-10 h-[26rem] w-[26rem] text-blue opacity-[0.5] transition-opacity duration-500 group-hover:opacity-80"
+              className="pointer-events-none absolute -right-10 -top-10 h-[26rem] w-[26rem] text-primary opacity-[0.32] transition-opacity duration-500 group-hover:opacity-60"
             >
               <defs>
                 <radialGradient id="svc-fade" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#45e6f4" stopOpacity="0.35" />
-                  <stop offset="100%" stopColor="#2f6dff" stopOpacity="0" />
+                  <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="#1466ff" stopOpacity="0" />
                 </radialGradient>
               </defs>
               <circle cx="200" cy="200" r="180" fill="url(#svc-fade)" />
@@ -72,7 +72,7 @@ export function Services() {
                 cy="200"
                 r="160"
                 fill="none"
-                stroke="#45e6f4"
+                stroke="#06b6d4"
                 strokeOpacity="0.7"
                 strokeWidth="1.5"
                 strokeDasharray="4 10"
@@ -82,24 +82,24 @@ export function Services() {
               <path
                 d="M40 200 q30 -45 60 0 t60 0 t60 0 t60 0 t60 0"
                 fill="none"
-                stroke="#45e6f4"
+                stroke="#06b6d4"
                 strokeOpacity="0.8"
                 strokeWidth="1.5"
               />
             </svg>
 
             <div className="relative flex items-start justify-between">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-line-2 bg-ink-2/80 text-blue-bright transition-all duration-500 group-hover:border-blue/60 group-hover:text-cyan group-hover:shadow-[0_0_30px_-6px_rgba(69,230,244,0.7)]">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-line-2 bg-cyan-soft text-primary transition-all duration-500 group-hover:border-primary group-hover:text-cyan group-hover:shadow-[0_0_26px_-8px_rgba(6,182,212,0.55)]">
                 <Brain className="h-7 w-7" strokeWidth={1.5} />
               </div>
-              <span className="font-mono text-sm text-faint">01</span>
+              <span className="font-mono text-sm text-text-3">01</span>
             </div>
 
             <div className="relative mt-10">
-              <h3 className="text-3xl font-bold tracking-tight text-fg">
+              <h3 className="text-3xl font-bold tracking-tight text-text">
                 Тархины MRI
               </h3>
-              <p className="mt-3 max-w-md text-[0.95rem] leading-relaxed text-muted">
+              <p className="mt-3 max-w-md text-[0.95rem] leading-relaxed text-text-2">
                 Тархи, судас, мэдрэлийн нарийвчилсан зураглал — цус харвалт,
                 хавдар, склерозыг эрт шатанд илрүүлнэ.
               </p>
@@ -108,7 +108,7 @@ export function Services() {
                   (chip) => (
                     <span
                       key={chip}
-                      className="rounded-full border border-line-2 bg-white/[0.02] px-3 py-1 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-muted"
+                      className="rounded-full border border-line-2 bg-surface-2 px-3 py-1 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-text-2"
                     >
                       {chip}
                     </span>
@@ -148,25 +148,25 @@ export function Services() {
 
         {/* ---- Хэвлийн MRI (wide) ---- */}
         <StaggerItem className="md:col-span-2 lg:col-span-12">
-          <article className="group relative flex min-h-[11rem] flex-col justify-between gap-6 overflow-hidden rounded-[var(--radius)] border border-line bg-card/70 p-8 backdrop-blur-sm transition-transform duration-500 hover:-translate-y-1 sm:flex-row sm:items-center">
+          <article className="group relative flex min-h-[11rem] flex-col justify-between gap-6 overflow-hidden rounded-[var(--radius)] border border-line bg-surface p-8 shadow-[0_1px_2px_rgba(15,39,66,0.04),0_24px_50px_-38px_rgba(20,102,255,0.25)] transition-transform duration-500 hover:-translate-y-1 sm:flex-row sm:items-center">
             <div className="flex items-center gap-5">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-line-2 bg-ink-2/80 text-blue-bright transition-all duration-500 group-hover:border-blue/60 group-hover:text-cyan group-hover:shadow-[0_0_30px_-6px_rgba(69,230,244,0.7)]">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-line-2 bg-cyan-soft text-primary transition-all duration-500 group-hover:border-primary group-hover:text-cyan group-hover:shadow-[0_0_26px_-8px_rgba(6,182,212,0.55)]">
                 <Stethoscope className="h-7 w-7" strokeWidth={1.5} />
               </div>
               <div>
                 <div className="flex items-center gap-3">
-                  <h3 className="text-2xl font-bold tracking-tight text-fg">
+                  <h3 className="text-2xl font-bold tracking-tight text-text">
                     Хэвлийн MRI
                   </h3>
-                  <span className="font-mono text-sm text-faint">04</span>
+                  <span className="font-mono text-sm text-text-3">04</span>
                 </div>
-                <p className="mt-1.5 max-w-xl text-[0.95rem] leading-relaxed text-muted">
+                <p className="mt-1.5 max-w-xl text-[0.95rem] leading-relaxed text-text-2">
                   Элэг, бөөр, цөс болон дотор эрхтний өөрчлөлтийг туяаны
                   ачаалалгүйгээр нарийвчлан үнэлнэ.
                 </p>
               </div>
             </div>
-            <span className="flex items-center gap-2 self-start font-mono text-xs uppercase tracking-[0.16em] text-blue-bright transition-transform duration-300 group-hover:translate-x-1 sm:self-center">
+            <span className="flex items-center gap-2 self-start font-mono text-xs uppercase tracking-[0.16em] text-primary transition-transform duration-300 group-hover:translate-x-1 sm:self-center">
               Дэлгэрэнгүй
               <ArrowUpRight className="h-4 w-4" />
             </span>
@@ -194,7 +194,7 @@ function PhotoCard({
   position?: string;
 }) {
   return (
-    <article className="group relative flex h-full min-h-[15.5rem] flex-col justify-between overflow-hidden rounded-[var(--radius)] border border-line p-7 transition-transform duration-500 hover:-translate-y-1">
+    <article className="group relative flex h-full min-h-[15.5rem] flex-col justify-between overflow-hidden rounded-[var(--radius)] border border-line bg-surface p-7 shadow-[0_1px_2px_rgba(15,39,66,0.04),0_24px_50px_-38px_rgba(20,102,255,0.25)] transition-transform duration-500 hover:-translate-y-1">
       <Image
         src={image}
         alt={title}
@@ -203,18 +203,19 @@ function PhotoCard({
         className="duotone object-cover transition-transform duration-700 group-hover:scale-105"
         style={{ objectPosition: position }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/35" />
-      <div className="absolute inset-0 bg-blue-deep/10 mix-blend-color" />
+      {/* light wash folds the photo into the white card, keeps text legible */}
+      <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-white/25" />
+      <div className="absolute inset-0 bg-primary/5" />
 
       <div className="relative flex items-start justify-between">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-line-2 bg-ink-2/70 text-blue-bright backdrop-blur-sm transition-all duration-500 group-hover:border-blue/60 group-hover:text-cyan">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-line-2 bg-white/85 text-primary backdrop-blur-sm transition-all duration-500 group-hover:border-primary group-hover:text-cyan">
           {icon}
         </div>
-        <span className="font-mono text-sm text-white/45">{index}</span>
+        <span className="font-mono text-sm text-text-3">{index}</span>
       </div>
       <div className="relative">
-        <h3 className="text-2xl font-bold tracking-tight text-fg">{title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted">{description}</p>
+        <h3 className="text-2xl font-bold tracking-tight text-text">{title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-text-2">{description}</p>
       </div>
       <CardChrome />
     </article>

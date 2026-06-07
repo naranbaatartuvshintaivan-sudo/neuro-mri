@@ -42,7 +42,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${manrope.variable} ${plexMono.variable} antialiased`}
     >
-      <body className="min-h-screen bg-ink text-fg">{children}</body>
+      <body className="min-h-screen bg-bg text-text">{children}</body>
     </html>
   );
 }

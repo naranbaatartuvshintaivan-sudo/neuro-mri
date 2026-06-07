@@ -37,7 +37,7 @@ export function Nav() {
         className={cn(
           "border-b transition-all duration-500",
           scrolled
-            ? "border-line bg-ink/70 backdrop-blur-xl"
+            ? "border-line bg-surface/80 backdrop-blur-xl"
             : "border-transparent bg-transparent"
         )}
       >
@@ -56,10 +56,10 @@ export function Nav() {
               />
             </span>
             <span className="flex flex-col leading-none">
-              <span className="text-[0.95rem] font-extrabold tracking-tight text-fg">
+              <span className="text-[0.95rem] font-extrabold tracking-tight text-text">
                 Neuro Scan
               </span>
-              <span className="font-mono text-[0.6rem] uppercase tracking-[0.42em] text-blue-bright">
+              <span className="font-mono text-[0.6rem] uppercase tracking-[0.42em] text-primary">
                 MRI Clinic
               </span>
             </span>
@@ -71,10 +71,10 @@ export function Nav() {
               <a
                 key={l.href}
                 href={l.href}
-                className="group relative text-sm font-medium text-muted transition-colors hover:text-fg"
+                className="group relative text-sm font-medium text-text-2 transition-colors hover:text-primary"
               >
                 {l.label}
-                <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gradient-to-r from-blue-bright to-cyan transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gradient-to-r from-primary to-cyan transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </div>
@@ -83,9 +83,9 @@ export function Nav() {
           <div className="hidden items-center gap-3 md:flex">
             <a
               href="tel:+97685038105"
-              className="flex items-center gap-2 font-mono text-xs text-muted transition-colors hover:text-fg"
+              className="flex items-center gap-2 font-mono text-xs text-text-2 transition-colors hover:text-primary"
             >
-              <Phone className="h-3.5 w-3.5 text-blue-bright" />
+              <Phone className="h-3.5 w-3.5 text-primary" />
               8503-8105
             </a>
             <a
@@ -102,7 +102,7 @@ export function Nav() {
             aria-label="Цэс"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-line-2 text-fg md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-line-2 text-text md:hidden"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -117,7 +117,7 @@ export function Nav() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-b border-line bg-ink/95 backdrop-blur-xl md:hidden"
+            className="overflow-hidden border-b border-line bg-surface/95 backdrop-blur-xl md:hidden"
           >
             <div className="flex flex-col gap-1 px-5 py-5">
               {LINKS.map((l) => (
@@ -125,7 +125,7 @@ export function Nav() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 text-base font-medium text-muted transition-colors hover:bg-white/[0.04] hover:text-fg"
+                  className="rounded-xl px-4 py-3 text-base font-medium text-text-2 transition-colors hover:bg-surface-2 hover:text-text"
                 >
                   {l.label}
                 </a>

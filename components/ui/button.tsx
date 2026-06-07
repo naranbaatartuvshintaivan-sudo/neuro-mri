@@ -5,18 +5,18 @@ import { cn } from "@/lib/utils";
 // shadcn Button, restyled for the Neuro Scan palette — exported as
 // `buttonVariants` too so links / motion wrappers can borrow the look.
 const buttonVariants = cva(
-  "group relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold tracking-tight transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink disabled:pointer-events-none disabled:opacity-50 select-none",
+  "group relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold tracking-tight transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:pointer-events-none disabled:opacity-50 select-none",
   {
     variants: {
       variant: {
         primary:
-          "bg-blue text-white shadow-[0_10px_40px_-12px_rgba(47,109,255,0.9)] hover:shadow-[0_16px_50px_-10px_rgba(47,109,255,1)] hover:bg-blue-bright hover:-translate-y-0.5",
+          "bg-primary text-white shadow-[0_12px_34px_-14px_rgba(20,102,255,0.7)] hover:bg-primary-600 hover:shadow-[0_18px_44px_-12px_rgba(20,102,255,0.75)] hover:-translate-y-0.5",
         ghost:
-          "border border-line-2 bg-white/[0.02] text-fg backdrop-blur-sm hover:bg-white/[0.06] hover:border-blue/50 hover:-translate-y-0.5",
+          "border border-line-2 bg-surface text-text hover:bg-surface-2 hover:border-primary/50 hover:-translate-y-0.5",
         outline:
-          "border border-line-2 text-fg hover:border-cyan/60 hover:text-white",
-        soft: "bg-blue/12 text-blue-bright hover:bg-blue/20",
-        link: "text-blue-bright underline-offset-4 hover:underline",
+          "border border-line-2 text-text hover:border-primary hover:text-primary",
+        soft: "bg-primary/10 text-primary hover:bg-primary/15",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
         sm: "h-9 px-4 text-sm",

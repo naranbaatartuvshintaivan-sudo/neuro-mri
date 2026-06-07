@@ -38,17 +38,17 @@ export function Booking() {
       className="relative scroll-mt-24 overflow-hidden border-y border-line"
     >
       {/* band atmosphere */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_90%_at_80%_0%,rgba(47,109,255,0.18),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_90%_at_80%_0%,rgba(20,102,255,0.08),transparent_60%)]" />
       <div className="atmo-grid absolute inset-0 opacity-70" />
 
       <div className="relative mx-auto max-w-[78rem] px-5 py-28 sm:px-8">
         <Reveal>
           <SectionLabel index="04">Холбоо барих</SectionLabel>
-          <h2 className="mt-5 max-w-2xl text-balance text-4xl font-extrabold tracking-[-0.02em] text-fg sm:text-5xl xl:text-6xl">
+          <h2 className="mt-5 max-w-2xl text-balance text-4xl font-extrabold tracking-[-0.02em] text-text sm:text-5xl xl:text-6xl">
             Өнөөдөр цаг{" "}
             <span className="text-gradient">захиалаарай</span>
           </h2>
-          <p className="mt-5 max-w-md text-[0.95rem] leading-relaxed text-muted">
+          <p className="mt-5 max-w-md text-[0.95rem] leading-relaxed text-text-2">
             Хүсэлтээ үлдээгээрэй — манай зөвлөх танд эргэн холбогдож, тохиромжтой
             цагийг баталгаажуулна.
           </p>
@@ -57,22 +57,22 @@ export function Booking() {
         <div className="mt-14 grid gap-6 lg:grid-cols-12">
           {/* form */}
           <Reveal className="lg:col-span-7">
-            <div className="relative rounded-[var(--radius)] border border-line-2 bg-card/80 p-7 backdrop-blur-md sm:p-9">
+            <div className="relative rounded-[var(--radius)] border border-line-2 bg-surface p-7 shadow-[0_1px_2px_rgba(15,39,66,0.04),0_30px_60px_-44px_rgba(20,102,255,0.3)] sm:p-9">
               {submitted ? (
                 <div className="flex min-h-[22rem] flex-col items-center justify-center text-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-cyan/30 bg-cyan/10 text-cyan">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-cyan/40 bg-cyan-soft text-primary-600">
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
-                  <h3 className="mt-6 text-2xl font-bold text-fg">
+                  <h3 className="mt-6 text-2xl font-bold text-text">
                     Хүсэлт хүлээн авлаа
                   </h3>
-                  <p className="mt-2 max-w-xs text-sm text-muted">
+                  <p className="mt-2 max-w-xs text-sm text-text-2">
                     Баярлалаа! Бид ажлын цагт удахгүй тантай холбогдох болно.
                   </p>
                   <button
                     type="button"
                     onClick={() => setSubmitted(false)}
-                    className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-blue-bright hover:text-cyan"
+                    className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-primary hover:text-primary-600"
                   >
                     Дахин илгээх
                   </button>
@@ -122,7 +122,7 @@ export function Booking() {
                       Цаг захиалах
                       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Button>
-                    <p className="mt-3 text-center font-mono text-[0.65rem] uppercase tracking-[0.14em] text-faint">
+                    <p className="mt-3 text-center font-mono text-[0.65rem] uppercase tracking-[0.14em] text-text-3">
                       Таны мэдээлэл нууцлагдана
                     </p>
                   </div>
@@ -162,7 +162,7 @@ export function Booking() {
               </div>
 
               {/* designed map placeholder */}
-              <div className="relative flex-1 overflow-hidden rounded-[var(--radius)] border border-line-2 bg-ink-2">
+              <div className="relative flex-1 overflow-hidden rounded-[var(--radius)] border border-line-2 bg-surface-2">
                 <div className="atmo-grid absolute inset-0 opacity-90" />
                 {/* abstract roads */}
                 <div className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-line-2" />
@@ -171,15 +171,15 @@ export function Booking() {
                 <div className="absolute left-0 top-[30%] h-px w-full bg-line" />
                 {/* pin */}
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div className="pulse-ring relative flex h-4 w-4 items-center justify-center rounded-full bg-cyan shadow-[0_0_24px_4px_rgba(69,230,244,0.6)]">
-                    <span className="h-1.5 w-1.5 rounded-full bg-ink" />
+                  <div className="pulse-ring relative flex h-4 w-4 items-center justify-center rounded-full bg-cyan shadow-[0_0_20px_3px_rgba(6,182,212,0.4)]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-white" />
                   </div>
                 </div>
-                <div className="absolute bottom-4 left-4 rounded-lg border border-line-2 bg-ink/80 px-3 py-2 backdrop-blur-md">
-                  <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-cyan">
+                <div className="absolute bottom-4 left-4 rounded-lg border border-line-2 bg-white/85 px-3 py-2 shadow-[0_12px_30px_-22px_rgba(20,102,255,0.5)] backdrop-blur-md">
+                  <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-primary-600">
                     Байршил
                   </p>
-                  <p className="mt-0.5 text-sm font-semibold text-fg">
+                  <p className="mt-0.5 text-sm font-semibold text-text">
                     Urban Tower · 1 давхар
                   </p>
                 </div>
@@ -203,12 +203,12 @@ function ContactRow({
   lines: { text: string; href?: string }[];
 }) {
   return (
-    <div className="flex items-start gap-4 bg-card p-5">
-      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-line-2 bg-ink-2/70 text-blue-bright">
+    <div className="flex items-start gap-4 bg-surface p-5">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-line-2 bg-cyan-soft text-primary">
         {icon}
       </div>
       <div>
-        <p className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-faint">
+        <p className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-text-3">
           {label}
         </p>
         <div className="mt-1 flex flex-col">
@@ -217,12 +217,12 @@ function ContactRow({
               <a
                 key={l.text}
                 href={l.href}
-                className="text-[0.95rem] font-medium text-fg transition-colors hover:text-cyan"
+                className="text-[0.95rem] font-medium text-text transition-colors hover:text-primary"
               >
                 {l.text}
               </a>
             ) : (
-              <span key={l.text} className="text-[0.95rem] text-fg">
+              <span key={l.text} className="text-[0.95rem] text-text">
                 {l.text}
               </span>
             )

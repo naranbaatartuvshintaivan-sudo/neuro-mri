@@ -1,26 +1,272 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   NEURO SCAN MRI — design tokens
+   Deep navy-black clinical base · medical blue primary ·
+   single cyan accent reserved for "AI" moments.
+   ============================================================ */
+@theme {
+  /* surfaces */
+  --color-ink: #05070e;
+  --color-ink-2: #080c18;
+  --color-ink-3: #0b1120;
+  --color-card: #0a0f1d;
+
+  /* hairlines */
+  --color-line: rgba(150, 174, 224, 0.1);
+  --color-line-2: rgba(150, 174, 224, 0.18);
+
+  /* text */
+  --color-fg: #e9eefc;
+  --color-muted: #95a2bd;
+  --color-faint: #5c6a87;
+
+  /* brand */
+  --color-blue: #2f6dff;
+  --color-blue-bright: #6aa1ff;
+  --color-blue-deep: #0b3fd6;
+  --color-cyan: #45e6f4;
+  --color-teal: #2fe6c6;
+
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-plex-mono);
+
+  --radius: 1.25rem;
+
+  --shadow-glow: 0 0 0 1px rgba(106, 161, 255, 0.12),
+    0 24px 80px -28px rgba(47, 109, 255, 0.55);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ---------- base ---------- */
+* {
+  border-color: var(--color-line);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-ink);
+  color: var(--color-fg);
+  color-scheme: dark;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(69, 230, 244, 0.22);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: #1a2540;
+  border: 3px solid var(--color-ink);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #25345a;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- atmosphere helpers ---------- */
+
+/* blueprint grid, fades toward edges */
+.atmo-grid {
+  background-image: linear-gradient(
+      to right,
+      rgba(120, 150, 220, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(120, 150, 220, 0.055) 1px, transparent 1px);
+  background-size: 62px 62px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 90% 70% at 50% 30%,
+    #000 35%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 90% 70% at 50% 30%,
+    #000 35%,
+    transparent 100%
+  );
+}
+
+/* fine dotted radiology console texture */
+.atmo-dots {
+  background-image: radial-gradient(
+    rgba(120, 150, 220, 0.16) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+}
+
+/* grain — kept extremely subtle */
+.atmo-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+}
+
+/* soft brand glow blobs (used sparingly) */
+.glow-blue {
+  background: radial-gradient(
+    circle at center,
+    rgba(47, 109, 255, 0.5) 0%,
+    rgba(47, 109, 255, 0) 68%
+  );
+  filter: blur(8px);
+}
+.glow-cyan {
+  background: radial-gradient(
+    circle at center,
+    rgba(69, 230, 244, 0.4) 0%,
+    rgba(69, 230, 244, 0) 68%
+  );
+  filter: blur(8px);
+}
+
+/* gradient hairline used to underline section frames */
+.rule-glow {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(106, 161, 255, 0.55),
+    rgba(69, 230, 244, 0.55),
+    transparent
+  );
+}
+
+/* clipped accent text */
+.text-gradient {
+  background: linear-gradient(100deg, #ffffff 0%, #8fc0ff 45%, #45e6f4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* scan sweep line for framed media */
+.scan-sweep {
+  position: absolute;
+  inset-inline: 0;
+  height: 28%;
+  top: -28%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(69, 230, 244, 0.14) 60%,
+    rgba(69, 230, 244, 0.45)
+  );
+  border-bottom: 1px solid rgba(69, 230, 244, 0.7);
+  animation: scan 5.5s cubic-bezier(0.7, 0, 0.3, 1) infinite;
+  pointer-events: none;
+}
+
+/* corner crop-marks like a DICOM viewer */
+.crop-mark {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid rgba(106, 161, 255, 0.55);
+}
+
+@keyframes scan {
+  0% {
+    top: -28%;
+  }
+  55%,
+  100% {
+    top: 128%;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+.blink {
+  animation: blink 1.8s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.pulse-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(69, 230, 244, 0.6);
+  animation: pulse-ring 2.6s ease-out infinite;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 34s linear infinite;
+}
+
+/* duotone treatment to fold marketing photos into the dark palette */
+.duotone {
+  filter: grayscale(0.45) brightness(0.62) contrast(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .scan-sweep,
+  .blink,
+  .float-slow,
+  .pulse-ring::after,
+  .marquee-track {
+    animation: none !important;
+  }
 }
